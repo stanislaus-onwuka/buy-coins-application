@@ -91,14 +91,20 @@ main .hero-img{
     width:100%
 }
 
+main .search-section{
+    display: flex;
+    flex-direction: column;
+    width:100%;
+    /* max-width: 550px; */
+}
+
 
 main form{
     display: flex;
     flex-direction: row;
     align-self: flex-start;
-    width:80%;
-    max-width: 550px;
     margin: 1rem 0;
+    width: 90%;
 }
 
 main form .search-input{
@@ -132,6 +138,12 @@ main form .search-input:focus-within{
     margin: 0 0.3rem;
 }
 
+main form .search-input .clear-search-btn{
+    background: none;
+    border: none;
+    cursor: pointer;
+}
+
 main form .search-btn{
     padding: 0.6rem 1.2rem;
     margin: 0 0.3rem;
@@ -150,3 +162,80 @@ main form .search-btn:hover{
     background: #2c974b;
 }
 
+/* Search results */
+main .search-section .search-results{
+    background: #fafbfc;
+    width: 73.5%;
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.096);
+    border-radius: 0 0 6px 6px;
+    max-height: 200px;
+    overflow-y: scroll;
+}
+
+/* Styling Scrollbar */
+main .search-section .search-results::-webkit-scrollbar {
+    width: 10px;
+}
+  
+main .search-section .search-results::-webkit-scrollbar-track {
+    background: #cfcfcf73; 
+    border-radius: 10px;
+}
+   
+main .search-section .search-results::-webkit-scrollbar-thumb {
+    background: #888;
+    border-radius: 10px; 
+}
+  
+main .search-section .search-results::-webkit-scrollbar-thumb:hover {
+    background: #555; 
+}
+
+main .search-section .search-results ul{
+    list-style-type: none;
+    padding: 0.5rem;
+}
+
+main .search-section .search-results li{
+    border-bottom: 1px solid #e1e4e8;
+}
+
+main .search-section .search-results li:nth-last-child(1){
+    border-bottom: none;
+}
+
+main .search-section .search-results .search-result{
+    display: flex;
+    flex-direction: row;
+    padding: 0.5rem 0.3rem;
+    align-items: center;
+    text-decoration: none;
+    color: #000;
+    cursor: pointer;
+}
+
+main .search-section .search-results .search-result .avatar{
+    max-width: 50px;
+}
+
+main .search-section .search-results .search-result .avatar img{
+    width:100%;
+    border-radius: 50%;
+}
+
+main .search-section .search-results .search-result .user{
+    display: flex;
+    flex-direction: column;
+    margin: 0 0.5rem;
+}
+
+main .search-section .search-results .search-result .user .name{
+    font-weight: 300;
+    font-size: 18px;
+}
+
+main .search-section .search-results .search-result .user .login{
+    font-size: 14px;
+    color: rgba(0, 0, 0, 0.63);
+    text-transform: capitalize;
+}

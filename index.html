@@ -10,6 +10,9 @@
     <link rel="manifest" href="assets/site.webmanifest">
     <link rel="stylesheet" href="css/style.css"/>
     <link rel="stylesheet" href="css/homepage.css"/>
+    <script src="https://unpkg.com/axios/dist/axios.min.js">
+        const axios = require('axios');
+    </script>
     <title>Github Users</title>
 </head>
 <body>
@@ -21,24 +24,32 @@
                 </div>
                 <h3 class="logo-text">GitHub <span>Users</span></h3>
             </a>
-            <a href="https://github.com/" class="github-link">Go to Github</a>
+            <a href="https://github.com/" target="_blank" class="github-link">Go to Github</a>
         </nav>
     </header>
     <main>
         <div class="hero">
             <div class="hero-text">
-                <h4 class="title">Looking a Github user's data?</h4>
+                <h4 class="title">Looking for a Github user's data?</h4>
                 <p class="subtitle">
                     Github Users uses the Github API and Graphql to provide info about users and allows you check out their info and repositories.
                 </p>
             </div>
-            <form>
-                <div class="search-input">
-                    <img src="assets/search.png" class="search-icon" />
-                    <input type="text" placeholder="Search users..."/>
+            <div class="search-section">
+                <form id="search-form">
+                    <div class="search-input">
+                        <img src="assets/search.png" class="search-icon" />
+                        <input type="text" placeholder="Search users..." id="search-input-value"/>
+                        <button class="clear-search-btn" id="clear-search-btn">
+                            <img src="assets/icons/x.svg"/>
+                        </button>
+                    </div>
+                    <input type="submit" value="Search" class="search-btn" id="search-btn" />
+                </form>
+                <div class="search-results" id="search-results">
                 </div>
-                <input type="submit" value="Search" class="search-btn"/>
-            </form>
+            </div>
+
         </div>
         <div class="hero-img">
             <img src="assets/3530467.jpg" />
@@ -65,5 +76,6 @@
             <li><a href="https://github.com/about" class="footer-link">About</a></li>
         </ul>
     </footer>
+    <script src="js/userRequest.js"></script>
 </body>
 </html>
