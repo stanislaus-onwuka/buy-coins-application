@@ -10,6 +10,10 @@
     <link rel="manifest" href="assets/site.webmanifest">
     <link rel="stylesheet" href="css/style.css"/>
     <link rel="stylesheet" href="css/userpage.css"/>
+    <!-- Initialize Axios -->
+    <script src="https://unpkg.com/axios/dist/axios.min.js">
+        const axios = require('axios');
+    </script>
     <title>User Page</title>
 </head>
 <body>
@@ -31,16 +35,16 @@
                     </ul>
                 </div>
                 <div class="menu-options">
-                    <div class="notification-icon">
+                    <a class="notification-icon">
                         <img src="assets/icons/bell.svg">
                         <div class="new"></div>
-                    </div>
-                    <div class="add-icon">
+                    </a>
+                    <a class="add-icon">
                         <img src="assets/icons/plus.svg">
-                    </div>
-                    <div class="avatar-icon">
-                        <img src="assets/icons/carbon_user-avatar-filled-alt.svg">
-                    </div>
+                    </a>
+                    <a class="avatar-icon">
+                        <img class="avatar-icon-img" src="assets/icons/carbon_user-avatar-filled-alt.svg">
+                    </a>
                 </div>
             </div>
             <div class="mobile-menu">
@@ -53,11 +57,11 @@
                     <img src="/assets/icons/octicon_repo-16.svg"/>
                 </div>
                 <h3>Repositories</h3>
-                <p class="repo-count">230</p>
+                <p class="repo-count">-</p>
             </div>
         </div>
     </header>
-    <main>
+    <main class="user-main-page">
         <div class="user-profile">
             <div class="user-img">
                 <img src="/assets/test.jpg"/>
@@ -72,77 +76,7 @@
             </div>
         </div>
         <div class="user-repositories">
-            <h3 class="repos-displayed">20 out of 230 repositories</h3>
-            <ul class="repo-list">
-                <li class="repo">
-                    <div class="repo-details">
-                        <h3 class="repo-name">A repository</h3>
-                        <p class="repo-details">
-                            Lorem ipsum dolor sit amet consectetur adipisicing elit. Molestias sapiente ea nulla laudantium at aspernatur modi odio dolore error saepe expedita 
-                            voluptate quo quae aperiam eligendi, est blanditiis quam natus
-                        </p>
-                        <div class="repo-info">
-                            <div class="most-used-tech">
-                                <div class="tech-color"></div>
-                                <h5 class="tech-name">HTML</h5>
-                            </div>
-                            <div class="stars">
-                                <div class="star-icon">
-                                    <img src="assets/icons/clarity_star-line.svg"/>
-                                </div>
-                                <h5 class="star-count">5</h5>
-                            </div>
-                            <div class="pull-requests">
-                                <div class="pull-request-icon">
-                                    <img src="assets/icons/jam_fork.svg"/>
-                                </div>
-                                <h5 class="pull-request-count">5</h5>
-                            </div>
-                            <p class="last-update">Updated on 1 Oct</p>
-                        </div>
-                    </div>
-                    <div class="star-repo">
-                        <button class="star-repo-btn">
-                            <img src="assets/icons/clarity_star-line.svg"/>
-                            <h3>Star</h3>
-                        </button>
-                    </div>
-                </li>
-                <li class="repo">
-                    <div class="repo-details">
-                        <h3 class="repo-name">A repository</h3>
-                        <p class="repo-details">
-                            Lorem ipsum dolor sit amet consectetur adipisicing elit. Molestias sapiente ea nulla laudantium at aspernatur modi odio dolore error saepe expedita 
-                            voluptate quo quae aperiam eligendi, est blanditiis quam natus
-                        </p>
-                        <div class="repo-info">
-                            <div class="most-used-tech">
-                                <div class="tech-color"></div>
-                                <h5 class="tech-name">HTML</h5>
-                            </div>
-                            <div class="stars">
-                                <div class="star-icon">
-                                    <img src="assets/icons/clarity_star-line.svg"/>
-                                </div>
-                                <h5 class="star-count">5</h5>
-                            </div>
-                            <div class="pull-requests">
-                                <div class="pull-request-icon">
-                                    <img src="assets/icons/jam_fork.svg"/>
-                                </div>
-                                <h5 class="pull-request-count">5</h5>
-                            </div>
-                            <p class="last-update">Updated on 1 Oct</p>
-                        </div>
-                    </div>
-                    <div class="star-repo">
-                        <button class="star-repo-btn">
-                            <img src="assets/icons/clarity_star-line.svg"/>
-                            <h3>Star</h3>
-                        </button>
-                    </div>
-                </li>
-            </ul>
+            <h3 class="repos-displayed">20 out of <span class="repo-count"></span> repositories</h3>
         </div>
     </main>
     <footer>
@@ -166,5 +100,6 @@
             <li><a href="https://github.com/about" class="footer-link">About</a></li>
         </ul>
     </footer>
+    <script src="/js/showProfile.js"></script>
 </body>
 </html>
