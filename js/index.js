@@ -123,7 +123,7 @@ searchInput.addEventListener("input",(e)=>{
                 searchResultListItem.addEventListener("click",()=>storeSearchResult(login));
 
                 const searchResultListItemLink = `
-                    <a class="search-result">
+                    <a href="/userpage.html" class="search-result">
                         <div class="avatar">
                             <img src="${avatarUrl}"/>
                         </div>
