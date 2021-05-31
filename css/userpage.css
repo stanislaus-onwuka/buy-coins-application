@@ -61,6 +61,109 @@
     width:100%;
 }
 
+header .navigation{
+    padding: 0.7rem 1rem;
+    background: #24292e;
+}
+
+.navigation .logo{
+    display: flex;
+    flex-direction: row;
+    text-decoration: none;
+}
+
+.logo .logo-img{
+    max-width: 40px;
+    align-self: center;
+}
+
+.logo .logo-img img{
+    width:100%;
+}
+
+.logo .logo-text{
+    font-size: 20px;
+    font-weight: 700;
+    color: hsla(0, 0%, 100%,0.7);
+    align-self: center;
+}
+
+.logo .logo-text span{
+    font-weight: 400;
+}
+
+
+
+
+/* Mobile menu */
+
+.navigation .mobile-menu{
+    display: none;
+}
+
+.navigation .mobile-menu .navbar{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.navigation .mobile-menu .mobile-menu-btn{
+    padding: 0.3rem;
+    width: 20px;
+    height:100%;
+    background:none;
+    border: none;
+    cursor: pointer;
+}
+
+.navigation .mobile-menu .mobile-menu-btn .bar{
+    width:100%;
+    height: 2px;
+    background: rgba(255, 255, 255, 0.712);
+    border-radius: 30px;
+}
+
+.navigation .mobile-menu .mobile-menu-btn .bar2{
+    margin: 0.3rem 0;
+}
+
+.show-menu{
+    display: flex !important;
+}
+
+.navigation .mobile-menu .menu-dropdown{
+    display: none;
+    flex-direction:column;
+    list-style: none;
+    padding: 0.5rem;
+}
+
+
+
+
+.navigation .mobile-menu .menu-dropdown .menu-item{
+    margin: 0.3rem;
+    padding: 0.3rem 0;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.247);
+}
+
+.navigation .mobile-menu .menu-dropdown .menu-item a{
+    color: #fff;
+    font-weight: 500;
+    text-decoration: none;
+    cursor: pointer;
+    transition: 0.2s;
+    white-space: nowrap;
+    font-size:15px;
+}
+
+.navigation .mobile-menu .menu-dropdown .menu-item a:hover{
+    color: hsla(0, 0%, 100%,0.7);
+}
+
+
+
 header .page-menu{
     border-bottom: 1px solid #e1e4e8;
 }
@@ -95,45 +198,6 @@ header .page-menu .repositories-tab .repo-count{
     border-radius: 50%;
 }
 
-header .navigation{
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-    align-items: center;
-    padding: 0.7rem 1rem;
-    background: #24292e;
-}
-
-.navigation .mobile-menu{
-    display: none;
-}
-
-.navigation .logo{
-    display: flex;
-    flex-direction: row;
-    text-decoration: none;
-}
-
-.logo .logo-img{
-    max-width: 40px;
-    align-self: center;
-}
-
-.logo .logo-img img{
-    width:100%;
-}
-
-.logo .logo-text{
-    font-size: 20px;
-    font-weight: 700;
-    color: hsla(0, 0%, 100%,0.7);
-    align-self: center;
-}
-
-.logo .logo-text span{
-    font-weight: 400;
-}
-
 
 /* Main page */
 
@@ -154,7 +218,6 @@ main .user-profile{
 main .user-profile .user-img{
     position: relative;
     max-width: 227.75px;
-    max-height: 227.75px;
     object-fit: cover;
 }
 
@@ -204,6 +267,63 @@ main .user-profile .user-details .bio{
     font-size: 16px;
     font-style: normal;
     font-weight: 300;
+}
+
+main .user-profile .set-emotion-mobile{
+    display: none;
+    flex-direction: row;
+    padding: 0.3rem;
+    align-items: center;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.151);
+    background-color: rgb(214, 214, 214);
+    border-radius: 6px;
+    margin: 0.4rem 0;
+}
+
+main .user-profile .set-emotion-mobile img{   
+    margin: 0.1rem 0;
+    width: 100%;
+    max-width: 16px; 
+}
+
+main .user-profile .set-emotion-mobile p{
+    font-size: 14px;
+    color: #586069;
+}
+
+main .mobile-page-menu{
+    display: none;
+    border-bottom: 1px solid #e1e4e8;
+    margin: 0.5rem 0;
+}
+
+main .mobile-page-menu .repositories-tab{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    padding: 0.6rem 0.6rem 0 0.6rem;
+    border-bottom: 2px solid #f9826c;
+    width:fit-content;
+    white-space: nowrap;
+}
+
+main .mobile-page-menu .repositories-tab .repo-icon{
+    align-self: center;
+}
+
+main .mobile-page-menu .repositories-tab h3{
+    margin: 0.5rem;
+    font-weight: 300;
+    font-size: 15px;
+    line-height: 30px;   
+}
+
+main .mobile-page-menu .repositories-tab .repo-count{
+    font-size: 14px;
+    align-self: center;
+    padding: 0.2rem 0.3rem;
+    background-color: #e1e4e8;
+    border-radius: 50%;
 }
 
 main .user-repositories{
@@ -309,7 +429,7 @@ main .user-repositories .repo-list .repo{
 }
 
 .repo .repo-details .repo-info .last-update{
-    font-size: 14px;
+    font-size: 13px;
 }
 
 .repo .star-repo-btn{
@@ -319,6 +439,7 @@ main .user-repositories .repo-list .repo{
     border-radius: 6px;
     border: 1px solid #1b1f2326;
     margin-top: 1rem;
+    cursor: pointer;
 }
 
 .repo .star-repo-btn img{
@@ -337,6 +458,146 @@ main .user-repositories .repo-list .repo{
     height: 5px;
     background-color: #5860694b;
     border-radius: 30px;
+    display: none;
 }
 
 
+
+/* Media Queries */
+
+@media only screen and (max-width: 400px){
+    main .user-profile .user-img .set-emotion{
+        display: none;
+    }
+
+    main .user-profile .set-emotion-mobile{
+        display: flex !important; 
+    }
+
+}
+
+@media only screen and (max-width: 550px){
+
+    header .page-menu .repositories-tab .repo-count{
+        font-size: 12px;
+    }
+
+    main{
+        padding: 0.2rem !important;
+    }
+
+    main .user-profile .user-details{
+        padding: 0.5rem 0;
+    }
+    
+    main .user-profile .user-details .name{
+        font-size: 20px;
+        line-height: 1.25;
+        font-weight: 600;
+        color: #24292e;
+        white-space: nowrap;
+    }
+    
+    main .user-profile .user-details .username{
+        font-size: 18px;
+        font-style: normal;
+        font-weight: 300;
+        line-height: 24px;
+        color: #586069;
+        margin: 0.7rem 0;
+    }
+    
+    main .user-profile .user-details .bio{
+        font-size: 13px;
+        font-style: normal;
+        font-weight: 300;
+    }
+
+    main .user-profile .user-img{
+        position: relative;
+        max-width: 227.75px;
+        object-fit: cover;
+    }
+    
+    main .user-profile .user-img img{
+        width:100%;
+        height: auto;
+        border-radius: 50%;
+    }
+    
+    main .user-profile .user-img .set-emotion{
+        position: absolute;
+        max-width: 22px;
+        bottom: 20px;
+        right: 10px;
+    }
+}
+
+@media only screen and (max-width: 780px){
+
+    .logo .logo-img{
+        max-width: 30px;
+        align-self: center;
+    }
+    
+    .logo .logo-img img{
+        width:100%;
+    }
+    
+    .logo .logo-text{
+        font-size: 18px;
+    }
+
+    .desktop-menu{
+        display: none;
+    }
+
+    .navigation .mobile-menu{
+        display: block;
+    }
+
+    header .page-menu{
+        display:none;
+    }
+
+    main{
+        flex-direction: column;
+        padding: 1rem;
+    }
+
+    main .user-profile{
+        flex-direction: row;
+        margin-top: 0.5rem;
+        max-width: unset;
+    }
+
+    main .user-profile .user-details{
+        padding: 1rem;
+        margin: 0 0.5rem;
+    }
+
+    main .mobile-page-menu{
+        display: block;
+    }
+}
+
+@media only screen and (max-width: 900px) {
+    .repo .repo-details .repo-name{
+        font-size: 18px;
+    }
+
+    .repo .repo-details .repo-info .most-used-tech .tech-color{
+        width:10px;
+        height: 10px;
+    }
+
+    .repo .repo-details .repo-info .stars,
+    .repo .repo-details .repo-info .forks{
+        font-size: 13px;
+    }
+
+    .repo .repo-details .repo-info .last-update{
+        font-size: 12px;
+    }
+    
+}

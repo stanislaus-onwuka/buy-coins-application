@@ -28,10 +28,10 @@
                         <h3 class="logo-text">GitHub <span>Users</span></h3>
                     </a>
                     <ul class="menu">
-                        <li class="menu-item"><a href="">Pull Requests</a></li>
-                        <li class="menu-item"><a href="">Issues</a></li>
-                        <li class="menu-item"><a href="">MarketPlace</a></li>
-                        <li class="menu-item"><a href="">Explore</a></li>
+                        <li class="menu-item"><a href="https://github.com/pulls">Pull Requests</a></li>
+                        <li class="menu-item"><a href="https://github.com/issues">Issues</a></li>
+                        <li class="menu-item"><a href="https://github.com/marketplace">MarketPlace</a></li>
+                        <li class="menu-item"><a href="https://github.com/explore">Explore</a></li>
                     </ul>
                 </div>
                 <div class="menu-options">
@@ -48,7 +48,29 @@
                 </div>
             </div>
             <div class="mobile-menu">
-
+                <div class="navbar">
+                    <button class="mobile-menu-btn">
+                        <div class="bar bar1"></div>
+                        <div class="bar bar2"></div>
+                        <div class="bar bar3"></div>
+                    </button>
+                    <a href="/index.html" class="logo">
+                        <div class="logo-img">
+                            <img src="assets/logos_github-octocat.png" />
+                        </div>
+                        <h3 class="logo-text">GitHub <span>Users</span></h3>
+                    </a>
+                    <a href="https://github.com/notifications" class="notification-icon">
+                        <img src="assets/icons/bell.svg">
+                        <div class="new"></div>
+                    </a>
+                </div>
+                <ul class="menu-dropdown">
+                    <li class="menu-item"><a href="https://github.com/pulls">Pull Requests</a></li>
+                    <li class="menu-item"><a href="https://github.com/issues">Issues</a></li>
+                    <li class="menu-item"><a href="https://github.com/marketplace">MarketPlace</a></li>
+                    <li class="menu-item"><a href="https://github.com/explore">Explore</a></li>
+                </ul>
             </div> 
         </nav>
         <div class="page-menu">
@@ -73,6 +95,19 @@
                 <h3 class="name"><div class="loading-placeholder"></div></h3>
                 <h4 class="username"><div class="loading-placeholder"></div></h4>
                 <p class="bio"><div class="loading-placeholder"></div></p>
+            </div>
+            <div class="set-emotion-mobile">
+                <img src="/assets/icons/ph_smiley.svg">
+                <p>Add Status</p>
+            </div>
+        </div>
+        <div class="mobile-page-menu">
+            <div class="repositories-tab">
+                <div class="repo-icon">
+                    <img src="/assets/icons/octicon_repo-16.svg"/>
+                </div>
+                <h3>Repositories</h3>
+                <p class="repo-count">-</p>
             </div>
         </div>
         <div class="user-repositories">
@@ -100,6 +135,7 @@
             <li><a href="https://github.com/about" class="footer-link">About</a></li>
         </ul>
     </footer>
+    <script src="/js/mobileMenu.js"></script>
     <script src="/js/showProfile.js"></script>
 </body>
 </html>

@@ -49,7 +49,7 @@ document.addEventListener("DOMContentLoaded",()=>{
         githubUrl,
         { 
             query: query,
-            variables: { "queryString": userId}
+            variables: { "queryString": userId ? userId : "stanislaus-onwuka"}
         }, 
         {headers: auth}
     )

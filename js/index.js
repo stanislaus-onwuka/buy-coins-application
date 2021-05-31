@@ -34,8 +34,8 @@ const query =
 } 
 `
 
+const searchUsers = (e)=> {
 
-searchForm.addEventListener("submit",(e)=>{
     e.preventDefault();
 
     axios.post(
@@ -90,16 +90,20 @@ searchForm.addEventListener("submit",(e)=>{
         console.log(error);
     });
 
-    // Clear state
-    if(searchInput.value.length === 0){
-        searchForm.reset();
-    }
-
-    if(searchInput.value === ""){
-        clearSearchBtn.style.display = "none";
-    }
     
+}
+
+// Send search request
+searchForm.addEventListener("submit", (e)=>searchUsers(e))
+
+
+searchInput.addEventListener("keypress", (e)=>{
+    if (e.key === "enter") {
+        e.preventDefault();
+        searchUsers(e);
+    }
 })
+
 
 
 // Storing selected result
