@@ -8,7 +8,9 @@ const searchResults = document.getElementById("search-results");
 // Constants and variables
 const githubUrl = 'https://api.github.com/graphql'
 
-const token = "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"
+const token = "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"
+
+// "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"
 
 const auth = {Authorization: 'bearer ' + token};
 

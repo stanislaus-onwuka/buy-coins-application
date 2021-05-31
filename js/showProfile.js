@@ -6,7 +6,7 @@ const userAvatar = document.querySelector(".avatar-icon-img");
 
 const githubUrl = 'https://api.github.com/graphql'
 
-const token = "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"
+const token = "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"
 
 const auth = {Authorization: 'bearer ' + token};
 
