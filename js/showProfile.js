@@ -23,6 +23,7 @@ const query =
         edges {
           node {
             id
+            url
             name
             forkCount
             description
@@ -70,7 +71,7 @@ document.addEventListener("DOMContentLoaded",()=>{
             <div class="user-details">
                 <h3 class="name">${user.name}</h3>
                 <h4 class="username">${user.login}</h4>
-                <p class="bio">${user.bio}</p>
+                <p class="bio">${user.bio === null ? "" : user.bio}</p>
             </div>
         `
 
@@ -96,7 +97,7 @@ document.addEventListener("DOMContentLoaded",()=>{
 
             const repositoryDetails = `
                 <div class="repo-details">
-                    <h3 class="repo-name">${repository.node.name}</h3>
+                    <a href="${repository.node.url}" class="repo-name">${repository.node.name}</a>
                     <p class="repo-details">${repository.node.description === null ? "" : repository.node.description}</p>
                     <div class="repo-info">
                         <div style="display: ${repository.node.primaryLanguage === null ? 'none' : "flex" };" class="most-used-tech">

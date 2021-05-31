@@ -70,7 +70,7 @@ header .page-menu .repositories-tab{
     flex-direction: row;
     align-items: center;
     padding: 0.4rem 0.6rem;
-    margin-left: 30%;
+    margin-left: 260px;
     border-bottom: 2px solid #f9826c;
     width:fit-content;
     white-space: nowrap;
@@ -148,6 +148,7 @@ main .user-profile{
     flex-direction: column;
     padding: 0.5rem 1rem;
     margin-top: -4rem;
+    max-width: 250px;
 }
 
 main .user-profile .user-img{
@@ -228,7 +229,7 @@ main .user-repositories .repo-list .repo{
     display: flex;
     flex-direction: row;
     justify-content: space-between;
-    padding: 0.5rem 0;
+    padding: 0.1rem 0;
     width:100%;
     border-bottom: 1px solid #e1e4e8;
 }
@@ -241,13 +242,20 @@ main .user-repositories .repo-list .repo{
 
 .repo .repo-details .repo-name{
     color: #0366d6;
-    font-size: 22px;
+    font-size: 20px;
     font-weight: 300;
+    text-decoration: none;
+    cursor: pointer;
 }
+
+.repo .repo-details .repo-name:hover{
+    text-decoration: underline;
+}
+
 
 .repo .repo-details .repo-details{
     color: #586069;
-    font-size: 16px;
+    font-size: 14px;
     width: 75%;
 }
 
@@ -272,8 +280,21 @@ main .user-repositories .repo-list .repo{
     flex-direction: row;
 }
 
+.repo .repo-details .repo-info .most-used-tech{
+    display: flex;
+    flex-direction:row;
+    align-items: center;
+}
+
+.repo .repo-details .repo-info .most-used-tech .tech-color{
+    width:11px;
+    height: 11px;
+    border-radius: 50%;
+}
+
 .repo .repo-details .repo-info .most-used-tech .tech-name{
     font-weight: 200;
+    margin: 0 0.2rem;
 }
 
 .repo .repo-details .repo-info .stars .star-count{
@@ -297,6 +318,7 @@ main .user-repositories .repo-list .repo{
     padding: 0.4rem 0.6rem;
     border-radius: 6px;
     border: 1px solid #1b1f2326;
+    margin-top: 1rem;
 }
 
 .repo .star-repo-btn img{
@@ -307,6 +329,14 @@ main .user-repositories .repo-list .repo{
     color: #24292ede;
     font-weight: 500;
     font-size: 14px;
+}
+
+
+.loading-placeholder{
+    width:100%;
+    height: 5px;
+    background-color: #5860694b;
+    border-radius: 30px;
 }
 
 
