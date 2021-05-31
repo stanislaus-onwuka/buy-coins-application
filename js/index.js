@@ -126,7 +126,15 @@ clearSearchBtn.addEventListener('click',(e)=>{
 
     searchForm.reset();
     searchInput.value = null;
-    searchResults.textContent = '';
+
+    // Clear results
+    searchResults.textContent = ""
+
+
+    while(searchResults.lastChild){
+        searchResults.removeChild(searchResults.lastChild);
+    }
+
     filteredResults = [];
 
     clearSearchBtn.style.display = "none";
