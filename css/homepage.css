@@ -247,3 +247,77 @@ main .search-section .search-results .no-results{
     font-weight: 500;
     font-size: 16px;
 }
+
+
+/* Media Queries */
+
+@media screen and (max-width: 600px) {
+    .logo .logo-text{
+        font-size: 16px;
+    }
+
+    .navigation .github-link{
+        font-size: 15px;
+    }
+
+    main{
+        padding: 2rem 0.5rem !important;
+    }
+
+
+    .hero .hero-text .title{
+        font-size: 30px;
+        font-weight: 700;
+        width:100%;
+    }
+
+    .hero .hero-text .subtitle{
+        font-size: 15px;
+        width:90%;
+    }
+
+    main form{
+        flex-direction: column;
+        margin: 1rem 0;
+        width: 100%;
+    }
+
+    main form .search-input{
+        width: 90%;
+    }
+
+    .search-input input {
+        font-size:16px;
+    }
+
+    main form .search-btn{
+        margin: 0.5rem 0;
+    }
+
+    main .search-section{
+        position: relative;
+    }
+
+    main .search-section .search-results{
+        position: absolute;
+        background: #fafbfc;
+        top: 115px;
+        width: 100%;
+    }
+}
+
+@media only screen and (max-width: 1120px) {
+    main{
+        flex-direction: column;
+        align-items: center;
+        padding: 3rem 1rem;
+        width: 90%;
+        margin: 1rem auto;
+    }
+
+    main .hero-img{
+        max-width: 780px;
+    }
+}
+
+

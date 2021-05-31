@@ -5,7 +5,7 @@ const clearSearchBtn = document.getElementById("clear-search-btn");
 const searchResults = document.getElementById("search-results");
 
 
-
+// Constants and variables
 const githubUrl = 'https://api.github.com/graphql'
 
 const token = "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"
@@ -15,6 +15,7 @@ const auth = {Authorization: 'bearer ' + token};
 let filteredResults = [];
 
 
+// GraphQL query
 const query = 
 `query SearchUsers($queryString: String!){
     search(query: $queryString, type: USER, first: 5) {
@@ -36,11 +37,6 @@ const query =
 
 searchForm.addEventListener("submit",(e)=>{
     e.preventDefault();
-
-    console.log(searchInput.value)
-
-    searchResults.style.display = 'block';
-    
 
     axios.post(
         githubUrl,

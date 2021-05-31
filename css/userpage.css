@@ -69,7 +69,7 @@ header .page-menu .repositories-tab{
     display: flex;
     flex-direction: row;
     align-items: center;
-    padding: 0.4rem 0.6rem;
+    padding: 0.6rem 0.6rem 0 0.6rem;
     margin-left: 260px;
     border-bottom: 2px solid #f9826c;
     width:fit-content;

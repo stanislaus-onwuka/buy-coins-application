@@ -78,3 +78,28 @@ footer{
 footer .footer-logo{
     margin: 0.2rem;
 }
+
+
+/* Media Queries */
+
+@media only screen and (max-width: 600px) {
+    .footer-list li{
+        margin: 0.1rem 0.4rem;
+        font-size: 12px;
+    }
+}
+
+@media only screen and (max-width: 975px) {
+    footer{
+        display: flex;
+        flex-direction:column;
+        justify-content: space-evenly;
+        margin: 3rem auto 0 auto;
+        align-items: center;
+        padding: 1rem 0;
+    }
+    
+    footer .footer-logo{
+        display:none;
+    }
+}
