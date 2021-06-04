@@ -1,6 +1,6 @@
 const axios = require("axios");
 
-exports.handler = (event, context) => {
+exports.handler = (event, callback) => {
     const githubUrl = 'https://api.github.com/graphql';
 
     const { queryString } = event.queryStringParameters;
@@ -44,24 +44,19 @@ exports.handler = (event, context) => {
         githubUrl,
         { 
             query: query,
-            variables: { "queryString": queryString }
+            variables: { "queryString": JSON.stringify(queryString)}
         }, 
         {headers: auth}
     )
     .then((response)=>{
         console.log(response)
-        return {
+        callback(null,{
             statusCode: 200,
             body: JSON.stringify(response.data)
-        }
+        })
     })
     .catch(error => {
         console.log("Error: Request handling error");
-        console.error(JSON.stringify(error));
-
-        return {
-            statusCode: 500,
-            body: JSON.stringify(error)
-        }
+        callback(JSON.stringify(error))
     })
 }

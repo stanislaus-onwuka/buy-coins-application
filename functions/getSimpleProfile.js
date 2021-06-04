@@ -1,6 +1,6 @@
 const axios = require('axios');
 
-exports.handler = async (event, context) => {
+exports.handler = async (event, callback) => {
     const githubUrl = 'https://api.github.com/graphql';
 
     const token = process.env.TOKEN;
@@ -38,16 +38,13 @@ exports.handler = async (event, context) => {
     )
     .then((response) => {
         console.log(response)
-        return {
+        callback(null,{
             statusCode: 200,
             body: JSON.stringify(response.data)
-        };
+        })
     })
     .catch((error)=>{
-        console.log(error)
-        return {
-            statusCode: 500,
-            body: JSON.stringify(error)
-        };
+        console.log("Error: Request handling error");
+        callback(JSON.stringify(error))
     })
 };
