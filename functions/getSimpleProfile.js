@@ -32,7 +32,7 @@ exports.handler = async (event, callback) => {
         githubUrl,
         { 
             query: query,
-            variables: { "queryString": JSON.stringify(queryString)}
+            variables: { "queryString": "stanislaus-onwuka"}
         }, 
         {headers: auth}
     )
