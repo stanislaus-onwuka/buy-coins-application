@@ -3,7 +3,7 @@ const axios = require("axios");
 exports.handler = (event, context) => {
     const githubUrl = 'https://api.github.com/graphql';
 
-    const { userId } = event.queryStringParameters;
+    const { queryString } = event.queryStringParameters;
 
     const token = process.env.TOKEN;
 
@@ -44,7 +44,7 @@ exports.handler = (event, context) => {
         githubUrl,
         { 
             query: query,
-            variables: { "queryString": userId ? userId : "stanislaus-onwuka"}
+            variables: { "queryString": queryString }
         }, 
         {headers: auth}
     )

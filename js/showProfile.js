@@ -10,7 +10,7 @@ document.addEventListener("DOMContentLoaded",()=>{
     axios.get(
         serverlessApi, { 
             params: {
-                "userId": userId ? userId : "stanislaus-onwuka"
+                "queryString": userId ? userId : "stanislaus-onwuka"
             }
         }
     )

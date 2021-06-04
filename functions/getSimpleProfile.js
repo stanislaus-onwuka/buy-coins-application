@@ -7,7 +7,7 @@ exports.handler = async (event, context) => {
 
     const auth = {Authorization: 'Bearer ' + token};
 
-    const { searchInputValue } = event.queryStringParameters;
+    const { queryString } = event.queryStringParameters;
 
     // GraphQL query
     const query = 
@@ -32,7 +32,7 @@ exports.handler = async (event, context) => {
         githubUrl,
         { 
             query: query,
-            variables: { "queryString": JSON.stringify(searchInputValue)}
+            variables: { "queryString": JSON.stringify(queryString)}
         }, 
         {headers: auth}
     )
