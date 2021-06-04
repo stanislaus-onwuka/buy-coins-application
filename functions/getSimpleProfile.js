@@ -5,8 +5,6 @@ exports.handler = async (event, callback) => {
 
     const token = process.env.TOKEN;
 
-    const auth = {Authorization: 'Bearer ' + token};
-
     const { queryString } = event.queryStringParameters;
 
     // GraphQL query
@@ -34,7 +32,9 @@ exports.handler = async (event, callback) => {
             query: query,
             variables: { "queryString": "stanislaus-onwuka"}
         }, 
-        {headers: auth}
+        {headers:{
+            "Authorization": `Bearer ${token}`
+        }}
     )
     .then((response) => {
         console.log(response)
