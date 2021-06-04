@@ -30,7 +30,7 @@ exports.handler = async (event, callback) => {
         githubUrl,
         { 
             query: query,
-            variables: { "queryString": JSON.stringify(queryString)}
+            variables: { "queryString": queryString}
         }, 
         {headers:{
             "Authorization": `Bearer ${token}`
