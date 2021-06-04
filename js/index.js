@@ -19,7 +19,7 @@ const searchUsers = (e)=> {
         serverlessApi, 
         {
             params: {
-                "queryString": "stanislaus-onwuka"
+                "queryString": JSON.stringify(searchInput.value)
             }
         }
     )

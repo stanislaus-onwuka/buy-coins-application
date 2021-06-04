@@ -5,7 +5,7 @@ exports.handler = async (event, callback) => {
 
     const token = process.env.TOKEN;
 
-    const { queryString } = event.queryStringParameters;
+    const { queryString } = event.body;
 
     // GraphQL query
     const query = 
@@ -30,7 +30,7 @@ exports.handler = async (event, callback) => {
         githubUrl,
         { 
             query: query,
-            variables: { "queryString": "stanislaus-onwuka"}
+            variables: { "queryString": JSON.stringify(queryString)}
         }, 
         {headers:{
             "Authorization": `Bearer ${token}`
@@ -38,10 +38,12 @@ exports.handler = async (event, callback) => {
     )
     .then((response) => {
         console.log(response)
-        callback(null,{
-            statusCode: 200,
-            body: JSON.stringify(response.data)
-        })
+        if(response.status === 200){
+            callback(null,{
+                statusCode: 200,
+                body: JSON.stringify(response.data)
+            })
+        }
     })
     .catch((error)=>{
         console.log("Error: Request handling error");
