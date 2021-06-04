@@ -4,57 +4,18 @@ const userProfile = document.querySelector(".user-profile")
 const userRepositories = document.querySelector(".user-repositories");
 const userAvatar = document.querySelector(".avatar-icon-img");
 
-const githubUrl = 'https://api.github.com/graphql'
-
-const token = "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"
-
-const auth = {Authorization: 'bearer ' + token};
-
-
-const query = 
-`query SearchUser($queryString: String!) {
-    user(login: $queryString) {
-      avatarUrl
-      login
-      name
-      bio
-      repositories(first: 20) {
-        totalCount
-        edges {
-          node {
-            id
-            url
-            name
-            forkCount
-            description
-            updatedAt
-            stargazerCount
-            primaryLanguage {
-              color
-              name
-            }
-          }
-        }
-        
-      }
-    }
-}   
-`
-
-
-
+const serverlessApi = "https://github-users-buycoins.netlify.app/.netlify/functions/fullUserProfile";
 
 document.addEventListener("DOMContentLoaded",()=>{
-    axios.post(
-        githubUrl,
-        { 
-            query: query,
-            variables: { "queryString": userId ? userId : "stanislaus-onwuka"}
-        }, 
-        {headers: auth}
+    axios.get(
+        serverlessApi, { 
+                headers: {
+                "userId": userId ? userId : "stanislaus-onwuka"
+            }
+        }
     )
     .then((response)=>{
-        const { user } = response.data.data;
+        const { user } = response.data;
 
         repoCount.forEach((count)=>{
             count.innerHTML = `${user.repositories.totalCount}`

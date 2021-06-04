@@ -6,55 +6,31 @@ const searchResults = document.getElementById("search-results");
 
 
 // Constants and variables
-const githubUrl = 'https://api.github.com/graphql'
-
-const token = "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"
-
-// "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"
-
-const auth = {Authorization: 'bearer ' + token};
+const serverlessApi = "https://github-users-buycoins.netlify.app/.netlify/functions/getSimpleProfile";
 
 let filteredResults = [];
 
-
-// GraphQL query
-const query = 
-`query SearchUsers($queryString: String!){
-    search(query: $queryString, type: USER, first: 5) {
-        repositoryCount
-        edges {
-            node {
-                ... on User {
-                    id
-                    avatarUrl
-                    login
-                    name
-                }
-            }
-        }
-    }
-} 
-`
 
 const searchUsers = (e)=> {
 
     e.preventDefault();
 
-    axios.post(
-        githubUrl,
-        { 
-            query: query,
-            variables: { "queryString": JSON.stringify(searchInput.value)}
-        }, 
-        {headers: auth}
+    axios.get(
+        serverlessApi, 
+        {
+            headers: {
+                "queryString": JSON.stringify(searchInput.value)
+            }
+        }
     )
     .then(function (response) {
-        const { edges } = response.data.data.search
-        const searchResultList = document.createElement("ul");
         console.log(response.data)
+        const { edges } = response.data.search
+        const searchResultList = document.createElement("ul");
+   
 
         if(edges.length > 0){
-            filteredResults = edges.filter(result=>{return result.node.login.toLowerCase().match(new RegExp(searchInput.value,"g"))})
+            filteredResults.push(edges.filter(result=>{return result.node.login.toLowerCase().match(new RegExp(searchInput.value,"g"))}))
             
             console.log(filteredResults)
 

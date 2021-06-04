@@ -1,0 +1,22 @@
+{
+  "name": "buy-coins-application",
+  "version": "1.0.0",
+  "description": "Mini web app to access Github's GraphQL API to get usernames and info",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/stanislaus-onwuka/buy-coins-application.git"
+  },
+  "author": "Stanley Onwuka",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/stanislaus-onwuka/buy-coins-application/issues"
+  },
+  "homepage": "https://github.com/stanislaus-onwuka/buy-coins-application#readme",
+  "dependencies": {
+    "axios": "^0.21.1"
+  }
+}
