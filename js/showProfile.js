@@ -9,12 +9,13 @@ const serverlessApi = "https://github-users-buycoins.netlify.app/.netlify/functi
 document.addEventListener("DOMContentLoaded",()=>{
     axios.get(
         serverlessApi, { 
-                headers: {
+            params: {
                 "userId": userId ? userId : "stanislaus-onwuka"
             }
         }
     )
     .then((response)=>{
+        console.log(response)
         const { user } = response.data;
 
         repoCount.forEach((count)=>{

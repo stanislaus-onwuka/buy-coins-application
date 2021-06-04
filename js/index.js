@@ -18,13 +18,13 @@ const searchUsers = (e)=> {
     axios.get(
         serverlessApi, 
         {
-            headers: {
+            params: {
                 "queryString": JSON.stringify(searchInput.value)
             }
         }
     )
     .then(function (response) {
-        console.log(response.data)
+        console.log(response)
         const { edges } = response.data.search
         const searchResultList = document.createElement("ul");
    

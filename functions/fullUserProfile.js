@@ -49,7 +49,7 @@ exports.handler = (event, context) => {
         {headers: auth}
     )
     .then((response)=>{
-
+        console.log(response)
         return {
             statusCode: 200,
             body: JSON.stringify(response.data)

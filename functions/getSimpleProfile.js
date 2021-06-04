@@ -37,12 +37,14 @@ exports.handler = async (event, context) => {
         {headers: auth}
     )
     .then((response) => {
+        console.log(response)
         return {
             statusCode: 200,
             body: JSON.stringify(response.data)
         };
     })
     .catch((error)=>{
+        console.log(error)
         return {
             statusCode: 500,
             body: JSON.stringify(error)
