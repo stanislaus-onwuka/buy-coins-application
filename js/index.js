@@ -62,8 +62,7 @@ const searchUsers = async (e)=> {
             console.log(filteredResults)
 
             filteredResults.map((result)=>{
-                let searchResult = result.node;
-                let { id,avatarUrl,login,name } = searchResult;
+                let { id,avatarUrl,login,name } = result.node;
 
                 const searchResultListItem = document.createElement("li");
                 searchResultListItem.setAttribute("id",id);
