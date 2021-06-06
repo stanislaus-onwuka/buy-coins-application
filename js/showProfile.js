@@ -55,7 +55,7 @@ document.addEventListener("DOMContentLoaded",async ()=>{
     )
     .then((response)=>{
         console.log(response)
-        const { user } = response.data;
+        const { user } = response.data.data;
 
         repoCount.forEach((count)=>{
             count.innerHTML = `${user.repositories.totalCount}`
