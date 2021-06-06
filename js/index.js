@@ -6,25 +6,52 @@ const searchResults = document.getElementById("search-results");
 
 
 // Constants and variables
-const serverlessApi = "https://github-users-buycoins.netlify.app/.netlify/functions/getSimpleProfile";
+const githubUrl = 'https://api.github.com/graphql';
+
+const query = 
+    `query SearchUsers($queryString: String!){
+        search(query: $queryString, type: USER, first: 5) {
+            repositoryCount
+            edges {
+                node {
+                    ... on User {
+                        id
+                        avatarUrl
+                        login
+                        name
+                    }
+                }
+            }
+        }
+    } 
+`;
 
 let filteredResults = [];
 
 
-const searchUsers = (e)=> {
+const searchUsers = async (e)=> {
 
     e.preventDefault();
 
-    axios.get(
-        serverlessApi, 
-        {
-            params: {
-                "queryString": JSON.stringify(searchInput.value)
-            }
-        }
+    const fetchToken = await fetch("https://github-users-buycoins.netlify.app/.netlify/functions/getToken");
+
+    let tokenValue = await fetchToken.text()
+
+    axios.post(
+        githubUrl,
+        { 
+            query: query,
+            variables: { "queryString": JSON.stringify(searchInput.value)}
+        }, 
+        {headers:{
+            "Authorization": `Bearer ${tokenValue}`,
+            'Content-Type': 'application/json',
+        }}
     )
     .then(function (response) {
         console.log(response)
+        console.log(fetchToken)
+        
         const { edges } = response.data.search
         const searchResultList = document.createElement("ul");
    
@@ -76,8 +103,8 @@ searchForm.addEventListener("submit", (e)=>searchUsers(e))
 
 
 searchInput.addEventListener("keypress", (e)=>{
+    e.preventDefault();
     if (e.key === "enter") {
-        e.preventDefault();
         searchUsers(e);
     }
 })

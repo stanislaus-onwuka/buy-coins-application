@@ -33,7 +33,8 @@ exports.handler = async (event, callback) => {
             variables: { "queryString": queryString}
         }, 
         {headers:{
-            "Authorization": `Bearer ${token}`
+            "Authorization": `Bearer ${token}`,
+            'Content-Type': 'application/json',
         }}
     )
     .then((response) => {

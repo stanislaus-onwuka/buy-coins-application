@@ -4,15 +4,54 @@ const userProfile = document.querySelector(".user-profile")
 const userRepositories = document.querySelector(".user-repositories");
 const userAvatar = document.querySelector(".avatar-icon-img");
 
-const serverlessApi = "https://github-users-buycoins.netlify.app/.netlify/functions/fullUserProfile";
 
-document.addEventListener("DOMContentLoaded",()=>{
-    axios.get(
-        serverlessApi, { 
-            params: {
-                "queryString": "stanislaus-onwuka"
+const githubUrl = 'https://api.github.com/graphql';
+
+const query = 
+        `query SearchUser($queryString: String!) {
+            user(login: $queryString) {
+            avatarUrl
+            login
+            name
+            bio
+            repositories(first: 20) {
+                totalCount
+                edges {
+                node {
+                    id
+                    url
+                    name
+                    forkCount
+                    description
+                    updatedAt
+                    stargazerCount
+                    primaryLanguage {
+                    color
+                    name
+                    }
+                }
+                }
+                
             }
-        }
+            }
+        }   
+`;
+
+document.addEventListener("DOMContentLoaded",async ()=>{
+    
+    const fetchToken = await fetch("https://github-users-buycoins.netlify.app/.netlify/functions/getToken");
+
+    let tokenValue = await fetchToken.text()
+
+    axios.post(
+        githubUrl,
+        { 
+            query: query,
+            variables: { "queryString": userId ? JSON.stringify(userId) : "stanislaus-onwuka"}
+        }, 
+        {headers:{
+            "Authorization": `Bearer ${tokenValue}`
+        }}
     )
     .then((response)=>{
         console.log(response)
