@@ -47,7 +47,7 @@ document.addEventListener("DOMContentLoaded",async ()=>{
         githubUrl,
         { 
             query: query,
-            variables: { "queryString": JSON.stringify(userId) }
+            variables: { "queryString": userId }
         }, 
         {headers:{
             "Authorization": `Bearer ${tokenValue}`
