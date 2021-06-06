@@ -57,7 +57,7 @@ const searchUsers = async (e)=> {
    
 
         if(edges.length > 0){
-            filteredResults.push(edges.filter(result=>{return result.node.login.toLowerCase().match(new RegExp(searchInput.value,"g"))}))
+            filteredResults= edges.filter(result=>{return result.node.login.toLowerCase().match(new RegExp(searchInput.value,"g"))});
             
             console.log(filteredResults)
 
