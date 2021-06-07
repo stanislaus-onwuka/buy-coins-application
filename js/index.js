@@ -4,49 +4,21 @@ const searchForm = document.querySelector("#search-form");
 const clearSearchBtn = document.getElementById("clear-search-btn");
 const searchResults = document.getElementById("search-results");
 
-
-// Constants and variables
-const githubUrl = 'https://api.github.com/graphql';
-
-const query = 
-    `query SearchUsers($queryString: String!){
-        search(query: $queryString, type: USER, first: 5) {
-            repositoryCount
-            edges {
-                node {
-                    ... on User {
-                        id
-                        avatarUrl
-                        login
-                        name
-                    }
-                }
-            }
-        }
-    } 
-`;
-
 let filteredResults = [];
 
 
 const searchUsers = async (e)=> {
-
     e.preventDefault();
 
-    const fetchToken = await fetch("https://github-users-buycoins.netlify.app/.netlify/functions/getToken");
+    const simpleProfileUrl = "https://github-users-buycoins.netlify.app/.netlify/functions/getSimpleProfile";
 
-    let tokenValue = await fetchToken.text()
-
-    axios.post(
-        githubUrl,
+    axios.get(
+        simpleProfileUrl,
         { 
-            query: query,
-            variables: { "queryString": JSON.stringify(searchInput.value)}
+            params: {
+                variables: { "queryString": JSON.stringify(searchInput.value)}
+            }
         }, 
-        {headers:{
-            "Authorization": `Bearer ${tokenValue}`,
-            'Content-Type': 'application/json',
-        }}
     )
     .then(function (response) {
         console.log(response)
