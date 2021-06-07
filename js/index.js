@@ -16,7 +16,7 @@ const searchUsers = async (e)=> {
         simpleProfileUrl,
         { 
             params: {
-                variables: { "queryString": JSON.stringify(searchInput.value)}
+                username: JSON.stringify(searchInput.value)
             }
         }, 
     )

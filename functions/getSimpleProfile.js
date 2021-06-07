@@ -29,7 +29,8 @@ exports.handler = async(event,context) =>{
             githubUrl,
             { 
                 query: query,
-                variables: event.queryStringParameters.variables
+                variables: { "queryString": event.queryStringParameters.username}
+
             }, 
             {headers:{
                 "Authorization": `Bearer ${TOKEN}`,
