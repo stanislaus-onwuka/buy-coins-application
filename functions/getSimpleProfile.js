@@ -1,5 +1,6 @@
-const { TOKEN } = process.env;
+const axios = require("axios");
 
+const { TOKEN } = process.env;
 const githubUrl = 'https://api.github.com/graphql';
 
 const query = 
