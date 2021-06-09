@@ -1,4 +1,9 @@
 const axios = require("axios");
+const dotenv = require("dotenv");
+
+if (process.env.NODE_ENV !== "production") {
+    dotenv.config();
+}
 
 
 const { TOKEN } = process.env;
@@ -52,10 +57,10 @@ exports.handler = async(event,context) =>{
     
         return{
             statusCode:200,
-            body: data
+            body: JSON.stringify(data)
         }
     } catch (error) {
-        console.error(error);
+        console.error("error.response.data", error.response.data);
 
         return {
             statusCode: 500,

@@ -21,8 +21,6 @@ const searchUsers = async (e)=> {
         }, 
     )
     .then(function (response) {
-        console.log(response)
-        console.log(fetchToken)
 
         const { edges } = response.data.data.search
         const searchResultList = document.createElement("ul");

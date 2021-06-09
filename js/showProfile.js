@@ -6,10 +6,10 @@ const userAvatar = document.querySelector(".avatar-icon-img");
 
 document.addEventListener("DOMContentLoaded",async ()=>{
     
-    const fullProfileUrl = await fetch("https://github-users-buycoins.netlify.app/.netlify/functions/getFullProfile");
+    const fullProfileUrl = "https://github-users-buycoins.netlify.app/.netlify/functions/getFullProfile";
     
     axios.get(
-        simpleProfileUrl,
+        fullProfileUrl,
         { 
             params: {
                 userId
