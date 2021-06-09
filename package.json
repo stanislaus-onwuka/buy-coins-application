@@ -18,5 +18,8 @@
   "homepage": "https://github.com/stanislaus-onwuka/buy-coins-application#readme",
   "dependencies": {
     "axios": "^0.21.1"
+  },
+  "devDependencies": {
+    "dotenv": "^10.0.0"
   }
 }
