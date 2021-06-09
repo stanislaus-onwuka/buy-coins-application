@@ -72,8 +72,8 @@ searchForm.addEventListener("submit", (e)=>searchUsers(e))
 
 
 searchInput.addEventListener("keypress", (e)=>{
-    e.preventDefault();
     if (e.key === "enter") {
+        e.preventDefault();
         searchUsers(e);
     }
 })
